@@ -1,0 +1,37 @@
+<allophones name="sampa" xml:lang="mk"
+		features="vlng vheight vfront vrnd ctype cplace cvox">
+	<silence ph="_"/>
+
+	<vowel ph="a" vlng="s" vheight="3" vfront="2" vrnd="-"/>
+	<vowel ph="e" vlng="s" vheight="2" vfront="1" vrnd="-"/>
+	<vowel ph="i" vlng="s" vheight="1" vfront="1" vrnd="-"/>
+	<vowel ph="o" vlng="s" vheight="2" vfront="3" vrnd="+"/>
+	<vowel ph="u" vlng="s" vheight="1" vfront="3" vrnd="+"/>
+		
+	<consonant ph="b" ctype="s" cplace="l" cvox="+"/>
+	<consonant ph="v" ctype="f" cplace="l" cvox="+"/>
+	<consonant ph="g" ctype="s" cplace="v" cvox="+"/>
+	<consonant ph="d" ctype="s" cplace="d" cvox="+"/>
+	<consonant ph="gj" ctype="a" cplace="p" cvox="+"/>
+	<consonant ph="zh" ctype="f" cplace="a" cvox="+"/>
+	<consonant ph="z" ctype="f" cplace="d" cvox="+"/>
+	<consonant ph="dz" ctype="a" cplace="d" cvox="+"/>
+	<consonant ph="j" ctype="f" cplace="p" cvox="+"/>
+	<consonant ph="k" ctype="s" cplace="v" cvox="-"/>
+	<consonant ph="l" ctype="f" cplace="d" cvox="+"/>
+	<consonant ph="lj" ctype="f" cplace="a" cvox="+"/>
+	<consonant ph="m" ctype="n" cplace="l" cvox="+"/>
+	<consonant ph="n" ctype="n" cplace="d" cvox="+"/>
+	<consonant ph="nj" ctype="n" cplace="a" cvox="+"/>
+	<consonant ph="p" ctype="s" cplace="l" cvox="-"/>
+	<consonant ph="r" ctype="f" cplace="a" cvox="+"/>
+	<consonant ph="s" ctype="f" cplace="d" cvox="-"/>
+	<consonant ph="t" ctype="s" cplace="d" cvox="-"/>
+	<consonant ph="kj" ctype="a" cplace="p" cvox="-"/>
+	<consonant ph="f" ctype="f" cplace="l" cvox="-"/>
+	<consonant ph="h" ctype="f" cplace="v" cvox="-"/>
+	<consonant ph="c" ctype="a" cplace="d" cvox="-"/>
+	<consonant ph="ch" ctype="a" cplace="a" cvox="-"/>
+	<consonant ph="dj" ctype="a" cplace="a" cvox="+"/>
+	<consonant ph="sh" ctype="f" cplace="a" cvox="-"/>
+</allophones>
