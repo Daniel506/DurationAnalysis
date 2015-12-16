@@ -5,6 +5,8 @@ import java.math.BigDecimal;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -45,7 +47,6 @@ public class Duration implements Serializable{
 		this.phonemeId = phonemeId;
 	}
 	
-	@Id
 	@Column(name = "SYLLABLE_ID")
 	public String getSyllableId() {
 		return syllableId;
@@ -55,6 +56,7 @@ public class Duration implements Serializable{
 		this.syllableId = syllableId;
 	}
 	
+	@Id
 	@Column(name = "PHONEME_POSITION")
 	public int getPhonemePosition() {
 		return phonemePosition;
@@ -83,6 +85,7 @@ public class Duration implements Serializable{
 	}
 	
 	@Column(name = "WORD_POSITION")
+	@Enumerated(EnumType.STRING)
 	public WordPosition getWordPosition() {
 		return wordPosition;
 	}

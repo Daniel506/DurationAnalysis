@@ -14,7 +14,7 @@ public enum PhonemeTranscription {
 	zh("ж"), 
 	z("з"), 
 	dz("ѕ"), 
-	j("и"), 
+	j("ј"), 
 	k("к"), 
 	l("л"), 
 	lj("љ"), 
