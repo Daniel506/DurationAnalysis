@@ -6,6 +6,7 @@ import java.util.List;
 import mk.ukim.finki.persistence.dao.DurationDao;
 import mk.ukim.finki.persistence.dao.WordDao;
 import mk.ukim.finki.persistence.model.Duration;
+import mk.ukim.finki.persistence.model.PhonemeTranscription;
 import mk.ukim.finki.persistence.model.Sentence;
 import mk.ukim.finki.persistence.model.Word;
 import mk.ukim.finki.persistence.model.WordPosition;
@@ -28,7 +29,7 @@ public class DurationService {
 	public void processSentences() {
 		sentenceService.readSentences();
 		List<Sentence> sentences = sentenceService.getSentences();
-		for (int i = 0; i < sentences.size(); i++) {
+		for (int i = 145; i < 146; i++) {
 			Sentence sentence = sentences.get(i);
 			System.out.println("Processing: " + sentence.getId());
 			processSentence(sentence, i);
@@ -77,24 +78,26 @@ public class DurationService {
 	private List<Duration> processWord(String word, int wordPosition, int sentenceOrder) {
 		List<Duration> vowelDurations = new ArrayList<Duration>();
 		
-		char[] wordArray = word.toCharArray();
-		int length = wordArray.length;
+		List<String> wordArray = getPhonemesArray(word);
+		int size = wordArray.size();
 		int syllableIndex = 0;
 		int j = 0;
 		
-		String syllableId = null;
-		Character precedent = null;
-		Character successor = null;
 		
-		for (int i = 0; i < length; i++) {
+		for (int i = 0; i < size; i++) {
 			
-			Character phoneme = wordArray[i];
+			String syllableId = null;
+			String precedent = null;
+			String successor = null;
+			
+			String phoneme = wordArray.get(i);
 			if (i > 0) {
-				precedent = wordArray[i - 1];
+				precedent = wordArray.get(i - 1);
 			}
 			
-			if (i < length - 1) {
-				successor = wordArray[i + 1];
+			int last = size - 1;
+			if (i < last) {
+				successor = wordArray.get(i + 1);
 			}
 
 			String wordSyllables = getWordSyllables(word);
@@ -112,11 +115,40 @@ public class DurationService {
 		return vowelDurations;
   }
 
+	private List<String> getPhonemesArray(String word) {
+		char[] wordCharArray = word.toCharArray();
+		List<String> phonemesList = new ArrayList<String>();
+		
+		int i = 0;
+		while (i < wordCharArray.length) {
+			String phoneme = null;
+			if (i < wordCharArray.length - 1) {
+				phoneme = String.valueOf(wordCharArray[i]) + String.valueOf(wordCharArray[i+1]);
+			} else {
+				phoneme = String.valueOf(wordCharArray[i]);
+			}
+			boolean complexPhoneme = PhonemeTranscription.isComplexPhoneme(phoneme);
+			
+			if (word.startsWith("iljad") || word.startsWith("odja")) {
+				complexPhoneme = false;
+			}
+			
+			if (complexPhoneme) {
+				phonemesList.add(phoneme);
+				i += 2;
+			} else {
+				phonemesList.add(String.valueOf(wordCharArray[i]));
+				i++;
+			}
+		}
+	  return phonemesList;
+  }
+
 	private Duration createDurationModel(
-			Character phoneme, 
+			String phoneme, 
 			Integer position, 
-			Character precedent, 
-			Character successor, 
+			String precedent, 
+			String successor, 
 			String syllableId) {
 	  
 		Duration duration = new Duration();

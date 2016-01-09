@@ -52,4 +52,15 @@ public enum PhonemeTranscription {
 		
 		return null;
 	}
+	
+	public static boolean isComplexPhoneme(String value) {
+		
+		if (value.equals(ch.name()) || value.equals(dj.name()) || value.equals(dz.name()) || value.equals(gj.name())
+				|| value.equals(kj.name()) || value.equals(lj.name()) || value.equals(nj.name()) || value.equals(sh.name()) 
+				|| value.equals(zh.name())) {
+			return true;
+		}
+				
+		return false;
+	}
 }
