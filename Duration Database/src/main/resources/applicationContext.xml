@@ -13,6 +13,7 @@
 	<context:component-scan base-package="mk.ukim.finki.persistence.model"></context:component-scan>
 	<context:component-scan base-package="mk.ukim.finki.persistence.service"></context:component-scan>
 	<context:component-scan base-package="mk.ukim.finki.persistence.dao"></context:component-scan>
+	<context:component-scan base-package="mk.ukim.finki.service.report"></context:component-scan>
 	
 	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="location">

@@ -7,6 +7,7 @@ import mk.ukim.finki.persistence.service.PhonemeDurationService;
 import mk.ukim.finki.persistence.service.PhonemeService;
 import mk.ukim.finki.persistence.service.SentenceService;
 import mk.ukim.finki.persistence.service.WordService;
+import mk.ukim.finki.service.report.ExportService;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Component;
@@ -31,6 +32,9 @@ public class Example {
 	      // TODO Auto-generated catch block
 	      e.printStackTrace();
       }
+			
+//			ExportService exprotService = context.getBean(ExportService.class);
+//			exprotService.exportPhonemeDurations();
 		}
 	}
 

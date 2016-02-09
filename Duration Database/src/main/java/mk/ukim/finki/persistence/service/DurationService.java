@@ -29,7 +29,7 @@ public class DurationService {
 	public void processSentences() {
 		sentenceService.readSentences();
 		List<Sentence> sentences = sentenceService.getSentences();
-		for (int i = 145; i < 146; i++) {
+		for (int i = 0; i < 178; i++) {
 			Sentence sentence = sentences.get(i);
 			System.out.println("Processing: " + sentence.getId());
 			processSentence(sentence, i);
@@ -91,6 +91,7 @@ public class DurationService {
 			String successor = null;
 			
 			String phoneme = wordArray.get(i);
+					
 			if (i > 0) {
 				precedent = wordArray.get(i - 1);
 			}
@@ -106,7 +107,11 @@ public class DurationService {
 			syllableId = syllables[j];
 			if (i >= (syllables[j].length() + syllableIndex - 1)) {
 				syllableIndex += syllables[j++].length();
+				if (getPhonemesArray(syllables[j - 1]).size() != syllables[j - 1].length()) {
+					syllableId = syllables[j];
+				}
 			}
+			
 
 			int phonemePosition = sentenceOrder * 100000 + wordPosition * 100 + i;
 			vowelDurations.add(createDurationModel(phoneme, phonemePosition, precedent, successor, syllableId));
